@@ -9,12 +9,12 @@ const UserSchema = new mongoose.Schema({
       date: { type: Date, default: Date.now },
       status: { type: String, default: 'present' },
     }
-  ],
-  leaves: [
-    {
-      date: { type: Date, default: Date.now },
-      status: { type: String, default: 'pending' },
-    }
+  // ],
+  // leaves: [
+  //   {
+  //     date: { type: Date, default: Date.now },
+  //     status: { type: String, default: 'pending' },
+  //   }
   ],
 });
 

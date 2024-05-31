@@ -25,17 +25,17 @@ router.get('/users', verifyAdmin, async (req, res) => {
 });
 
 // Edit, Add, Delete Attendance
-router.put('/attendance/:userId', verifyAdmin, async (req, res) => {
-  const user = await User.findById(req.params.userId);
-  user.attendance = req.body.attendance;
-  await user.save();
-  res.send('Attendance updated');
-});
+// router.put('/attendance/:userId', verifyAdmin, async (req, res) => {
+//   const user = await User.findById(req.params.userId);
+//   user.attendance = req.body.attendance;
+//   await user.save();
+//   res.send('Attendance updated');
+// });
 
 // Generate Report
 
-// router.get('/report', verifyAdmin, async (req, res) => {
-  router.get('/report', async (req, res) => {
+router.get('/report', verifyAdmin, async (req, res) => {
+  // router.get('/report', async (req, res) => {
   const { from, to } = req.query;
   const users = await User.find();
   const report = users.map(user => {
@@ -52,17 +52,17 @@ router.put('/attendance/:userId', verifyAdmin, async (req, res) => {
   });
   res.json(report);
 });
+ 
 
-
-
+ 
 
 // Leave Approval Module
-router.put('/leave/:userId', verifyAdmin, async (req, res) => {
-  const user = await User.findById(req.params.userId);
-  const leave = user.leaves.id(req.body.leaveId);
-  leave.status = req.body.status;
-  await user.save();
-  res.send('Leave status updated');
-});
+// router.put('/leave/:userId', verifyAdmin, async (req, res) => {
+//   const user = await User.findById(req.params.userId);
+//   const leave = user.leaves.id(req.body.leaveId);
+//   leave.status = req.body.status;
+//   await user.save();
+//   res.send('Leave status updated');
+// });
 
 export default router

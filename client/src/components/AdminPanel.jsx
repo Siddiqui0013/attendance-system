@@ -33,26 +33,6 @@ function AdminPanel() {
     });
   };
 
-  const updateAttendance = (userId, attendance) => {
-    axios.put(`http://localhost:5000/admin/attendance/${userId}`, { attendance }, {
-      headers: { 'Authorization': localStorage.getItem('token') }
-    }).then(response => {
-      alert('Attendance updated');
-    }).catch(error => {
-      alert(error.response.data);
-    });
-  };
-
-  const updateLeaveStatus = (userId, leaveId, status) => {
-    axios.put(`http://localhost:5000/admin/leave/${userId}`, { leaveId, status }, {
-      headers: { 'Authorization': localStorage.getItem('token') }
-    }).then(response => {
-      alert('Leave status updated');
-    }).catch(error => {
-      alert(error.response.data);
-    });
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-4xl font-bold text-center mb-6">Admin Panel</h1>

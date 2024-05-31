@@ -62,11 +62,11 @@ router.put('/profile', verifyToken, async (req, res) => {
 });
 
 // Send Leave Request
-router.post('/leave', verifyToken, async (req, res) => {
-  const user = await User.findById(req.user.id);
-  user.leaves.push({ date: new Date(), status: 'pending' });
-  await user.save();
-  res.send('Leave request sent');
-});
+// router.post('/leave', verifyToken, async (req, res) => {
+//   const user = await User.findById(req.user.id);
+//   user.leaves.push({ date: new Date(), status: 'pending' });
+//   await user.save();
+//   res.send('Leave request sent');
+// });
 
 export default router
